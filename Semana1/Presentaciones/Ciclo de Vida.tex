@@ -1,0 +1,83 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\hypersetup{
+    colorlinks=true,
+    urlcolor={blue!40!black},
+    linkcolor={red!50!black}
+}
+
+\inputencoding{utf8}
+
+\mode<presentation> {
+    \usetheme{Madrid}
+}
+
+\title[Ciclo de vida]{Ciclo de vida de un sistema}
+\author{Prof. Ernesto Rodriguez}
+\institute{
+    Universidad del Itsmo \\
+    \medskip \textit{erodriguez@unis.edu.gt}
+}
+
+\date[\today]{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sistema de informaci\'on}
+    \begin{itemize}
+        \item{Responsable de recolectar, almacenar, procesar y presentar informaci\'on.}
+        \item{Es utilizado por varios \emph{actores} de diferentes campos.}
+        \item{Implementa un conjunto de \emph{reglas}, las cuales definen su operaci\'on.}
+        \item{Puede estar compuesto de diferentes sub-sistemas.}
+        \item{Debe mantener ciertas \emph{invariantes}, cualquiera que sea su estado.}
+        \item{\emph{invariante}: Propiedad que tienen un conjunto de objetos, cuando un objeto es transformado. Ej. $\forall a . a \in \mathtt{Array}:\mathtt{a.length} \geq 0$ }
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo: Un Banco}
+    \begin{itemize}
+        \item{¿Que información se esta procesando?}
+        \item{¿Como se debe almacenar dicha informaci\'on?}
+        \item{¿Como se debe procesar dicha informaci\'on?}
+        \item{¿Que actores utilizaran el sistema?}
+        \item{¿Que servicios necesita nuestro sistema para funcionar correctamente?}
+        \item{¿Que condiciones extraordinarias puede enfrentar nuestro sistema durante su uso?}
+        \item{¿Que invariantes existen en el sistema?}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Etapas de desarrollo}
+\begin{itemize}
+    \item Recolecci\'on de requisitos
+    \item Administraci\'on del equipo
+    \item Dise\~no del sistema
+    \item Programaci\'on
+    \item Evaluar el sistema
+    \item Documentaci\'on del sistema
+    \item Soporte y mantenimiento
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}
+\frametitle{Referencias}
+\bibliography{../../Referencias/referencias}
+\bibliographystyle{plain}
+\end{frame}
+
+\end{document}
