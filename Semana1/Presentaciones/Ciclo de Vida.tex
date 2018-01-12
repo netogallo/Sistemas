@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage[font={small,it},labelfont=bf]{caption}
 \hypersetup{
     colorlinks=true,
     urlcolor={blue!40!black},
@@ -40,7 +41,7 @@
         \item{Implementa un conjunto de \emph{reglas}, las cuales definen su operaci\'on.}
         \item{Puede estar compuesto de diferentes sub-sistemas.}
         \item{Debe mantener ciertas \emph{invariantes}, cualquiera que sea su estado.}
-        \item{\emph{invariante}: Propiedad que tienen un conjunto de objetos, cuando un objeto es transformado. Ej. $\forall a . a \in \mathtt{Array}:\mathtt{a.length} \geq 0$ }
+        \item{\emph{invariante}: Propiedad que tienen un conjunto de objetos, que se preserva aun cuando un objeto es transformado. Ej. $\forall a . a \in \mathtt{Array}:\mathtt{a.length} \geq 0$ }
     \end{itemize}
 
 \end{frame}
@@ -59,6 +60,17 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Retos al desarrollar un Sistema}
+    \begin{itemize}
+        \item{El sistema debe acoplarse a personas de diferentes campos, culturas y necesidades.}
+        \item{El sistema debe ser desarrollado por muchas personas, tambien de diferentes campos.}
+        \item{El sistema debe garantizar cumplir con muchos requisitso, posiblemente conflictivos.}
+        \item{El sistema debe ser completado antes de una fecha.}
+        \item{El sistema debe ser mantenido y respaldado luego de ser entregado.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Etapas de desarrollo}
 \begin{itemize}
     \item Recolecci\'on de requisitos
@@ -72,6 +84,23 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Retos durante el desarrollo de un Sistema}
+
+\begin{tabular}{p{8cm} p{3cm}}
+
+    \begin{itemize}
+        \item{Los requisitos del cliente pueden cambiar.}
+        \item{El equipo de desarrolladores puede cambiar $\Rightarrow$ \emph{Bus factor:}
+            La probabilidad que el desarrollo del sistema fracase si uno de los desarrolladores
+            es arroyado por un bus.}
+        \item{Alg\'un requisito del sistema resulta ser imposible $\Rightarrow$ ¿Retirar el requisito o modificarlo?}
+        \item{El ambiente de desarrollo difiere drasticamente del ambiente de producci\'on: Firewalls, proxies, arquitecturas, etc.}
+        \item{En general: {\bf Todo es incierto, los datos son poco confiables y las personas de competencia dudosa...}}
+    \end{itemize} &
+    \raisebox{-\totalheight}{
+        \includegraphics[width=3cm]{parkbird.png}
+    }\small{\captionof{figure}{Obtained from XKCD \cite{XkcdBirdPark}}} \\
+\end{tabular}
 \end{frame}
 
 \begin{frame}
