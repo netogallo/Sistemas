@@ -40,14 +40,14 @@
         \item{Es utilizado por varios \emph{actores} de diferentes campos.}
         \item{Implementa un conjunto de \emph{reglas}, las cuales definen su operaci\'on.}
         \item{Puede estar compuesto de diferentes sub-sistemas.}
-        \item{Debe mantener ciertas \emph{invariantes}, cualquiera que sea su estado.}
+        \item{Debe garantizar que se cumplan alg\'uans \emph{invariantes} en todo momento.}
         \item{\emph{invariante}: Propiedad que tienen un conjunto de objetos, que se preserva aun cuando un objeto es transformado. Ej. $\forall a . a \in \mathtt{Array}:\mathtt{a.length} \geq 0$ }
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Ejemplo: Un Banco}
+    \frametitle{Ejemplo: Un Banco en linea}
     \begin{itemize}
         \item{¿Que información se esta procesando?}
         \item{¿Como se debe almacenar dicha informaci\'on?}
@@ -74,6 +74,7 @@
 \frametitle{Etapas de desarrollo}
 \begin{itemize}
     \item Recolecci\'on de requisitos
+    \item Investigaci\'on del problema y requisitos ¿Ya existen soluciones?
     \item Administraci\'on del equipo
     \item Dise\~no del sistema
     \item Programaci\'on
@@ -87,20 +88,34 @@
 \frametitle{Retos durante el desarrollo de un Sistema}
 
 \begin{tabular}{p{8cm} p{3cm}}
-
     \begin{itemize}
         \item{Los requisitos del cliente pueden cambiar.}
         \item{El equipo de desarrolladores puede cambiar $\Rightarrow$ \emph{Bus factor:}
             La probabilidad que el desarrollo del sistema fracase si uno de los desarrolladores
             es arroyado por un bus.}
-        \item{Alg\'un requisito del sistema resulta ser imposible $\Rightarrow$ ¿Retirar el requisito o modificarlo?}
-        \item{El ambiente de desarrollo difiere drasticamente del ambiente de producci\'on: Firewalls, proxies, arquitecturas, etc.}
-        \item{En general: {\bf Todo es incierto, los datos son poco confiables y las personas de competencia dudosa...}}
+        \item{Alg\'un requisito del sistema resulta ser
+            imposible $\Rightarrow$ ¿Retirar el requisito
+            o modificarlo?}            
+        \item{El ambiente de desarrollo difiere drasticamente
+            del ambiente de producci\'on: Firewalls, proxies,
+            arquitecturas, etc.}
+        \item{En general: {\bf Todo es incierto, los datos son
+            poco confiables y las personas de competencia dudosa...}}
     \end{itemize} &
     \raisebox{-\totalheight}{
         \includegraphics[width=3cm]{parkbird.png}
-    }\small{\captionof{figure}{Obtained from XKCD \cite{XkcdBirdPark}}} \\
+    }\captionof{figure}{Obtained from XKCD \cite{XkcdBirdPark}} \\
 \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \frametitle{¿Como ordenar las fases de desarrollo?}
+    \begin{itemize}
+    \item ¿Como manejar la incertidumbre y falta de informaci\'on?
+    \item ¿Quienes son los accionistas del sistema? $\Rightarrow$ a menudo no son el cliente.
+    \item ¿Como recibir retro-alimentaci\'on del cliente?
+    \item ¿Como manejar cambios de requisitos?
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
