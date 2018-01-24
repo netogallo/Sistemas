@@ -1,0 +1,186 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[font={small,it},labelfont=bf]{caption}
+\hypersetup{
+    colorlinks=true,
+    urlcolor={blue!40!black},
+    linkcolor={red!50!black}
+}
+
+\inputencoding{utf8}
+
+\mode<presentation> {
+    \usetheme{Madrid}
+}
+
+\title{Introducci\'on a Logica formal}
+\author{Prof. Ernesto Rodriguez}
+\institute{
+    Universidad del Itsmo \\
+    \medskip \textit{erodriguez@unis.edu.gt}
+}
+
+\date[\today]{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{La Situaci\'on:}
+    \begin{itemize}
+        \item{Un sistema tiene una lista de requisitos.}
+        \item{El sistema debe cumplir con reglas, estas se pueden expresar como \emph{invariantes}.}
+        \item{Cada vez que el sistema cambia su estado, se debe asegurar que las invariantes se cumplan.}
+        \item{{\bf Ejemplos:}
+            \begin{itemize}
+                \item{Un usuario transfiere fondos a otro usuario.
+                    \begin{itemize}
+                        \item{El saldo de todos los usuarios es mayor o igual a cero.}
+                        \item{El saldo de todos los usuarios es la suma de las transacciones.}
+                    \end{itemize}
+                \item{Un tren debe ser colocado en el riel que lo lleve a su destino.
+                    \begin{itemize}
+                        \item{Jamas deben haber dos trenes en la misma posici\'on.}
+                        \item{El tren debe alcanzar su destino en tiempo finito.}
+                    \end{itemize}
+                }
+                }
+            \end{itemize}
+        }
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{La Situaci\'on:}
+    \begin{itemize}
+        \item{El sistema puede tener cientos de requisitos e invariantes.}
+        \item{En el sistema trabajan muchas personas.}
+        \item{Es altamente costoso verificar que los requisitos e
+            invariantes se c\'umplen cada vez que se actualiza el codigo.}
+        \item{El sistema esta distribuido.}
+        \item{El sistema evoluciona constantemente.}
+        \item{El lenguaje natural es ambig\"uo}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Incluso si el sistema esta bien definido:}
+    \begin{itemize}
+        \item{No es possible correr el sistema en todos
+            los casos posibles (no habria necesidad del sistema)}
+        \item{El \"halting problem\" no es decidible.}
+        \item{Las propiedades de comportamiento de un programa no
+            son decidibles: Teorema de Rice.}
+        \item{No importa que metodo utilizemos para validar el sistema,
+            el m\'etodo debe hacerlo en tiempo finito.}
+    \end{itemize}
+    {\bf ¿Podemos hacer algo?}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+    \includegraphics[width=6cm]{yes.jpg}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Verificaci\'on automatizada}
+    \begin{itemize}
+        \item{Se ejecutan continuamente.}
+        \item{Existen varios metodos:
+            \begin{itemize}
+                \item{Pruebas:
+                    \begin{itemize}
+                        \item{Casos individuales}
+                        \item{Casos aleatoreos}
+                        \item{Casos construidos inductivamente}
+                    \end{itemize}
+                }
+                \item{Verificaci\'on formal:
+                    \begin{itemize}
+                        \item{Analisis de flujo}
+                        \item{Theorem provers: Z3, Coq}
+                        \item{Lenguajes de modelaci\'on (Promela)}
+                    \end{itemize}
+                }
+                \item{Sistemas de tipos:
+                    \begin{itemize}
+                        \item{Sistemas de primer orden}
+                        \item{Sistemas de orden superior}
+                        \item{Sistemas de categorias superiores (Higher kinds)}
+                    \end{itemize}
+                }
+            \end{itemize}
+        \item{Pueden validar numerosas condiciones en poco tiempo.}
+        }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{M\'etodos formales vs. Pruebas automatizadas}
+    \begin{tabular}{|p{5cm}|p{5cm}|}
+    \hline
+    {\bf Metodos formales} & {\bf Pruebas automatizadas} \\
+    \hline
+    Verifican todos los casos & Verifican numero finito de casos \\
+    \hline
+    No decidibles & Decidibles \\
+    \hline
+    Dificiles de implementar & Faciles de implementar \\
+    \hline
+    Alto costo a cambios en el sistema & Mediano costo a cambios en el sistema \\
+    \hline
+    \end{tabular}
+\\La base de todo metod de verificaci\'on es: {\bf Logica formal}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Logica Formal: Ejemplos}
+    \begin{itemize}
+        \item{Lenguaje formal para describir objetos}
+        \item{Consiste de:
+            \begin{itemize}
+                \item{Predicados}
+                \item{Igualdad}
+                \item{Negaci\'on}
+                \item{Operadores boleanos}
+                \item{Cuantificadores}
+            \end{itemize}
+        }
+        \item{Ejemplos:
+            \begin{itemize}
+                \item{Representaci\'on de cuentas}
+                \item{Representaci\'on de un banco}
+                \item{Abonar cuenta}
+            \end{itemize}
+        }
+        
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sematicas operacionales}
+    \begin{itemize}
+        \item{Se utilizan para describir el comportamiento de un sistema.}
+        \item{Describen como se transforma el estado de un sistema.}
+        \item{Ejemplos:
+            \begin{itemize}
+                \item{Transferir fondos}
+                \item{Abonar cuenta}
+                \item{Retirar fondos}
+            \end{itemize}
+        }
+    \end{itemize}
+\end{frame}
+
+\end{document}

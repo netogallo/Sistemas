@@ -1,0 +1,179 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[font={small,it},labelfont=bf]{caption}
+\hypersetup{
+    colorlinks=true,
+    urlcolor={blue!40!black},
+    linkcolor={red!50!black}
+}
+
+\inputencoding{utf8}
+
+\mode<presentation> {
+    \usetheme{Madrid}
+}
+
+\title{Logica de primer orden}
+\author{Prof. Ernesto Rodriguez}
+\institute{
+    Universidad del Itsmo \\
+    \medskip \textit{erodriguez@unis.edu.gt}
+}
+
+\date[\today]{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Motivaci\'on}
+    \begin{itemize}
+        \item{La logica es una de las herramientas m\'as universales que hay
+        para describir objetos formalmente. En nuestro caso, sistemas.}
+        \item{Existen infinitas l\'ogicas diferentes. Ejemplos:
+            \begin{itemize}
+                \item{L\'ogica de primer orden}
+                \item{L\'ogica de segundo orden}
+                \item{L\'ogica del $400^{avo}$ orden}
+                \item{Logica temporal lineal}
+                \item{Logica de Hoare}
+            \end{itemize}
+        }
+        \item{La l\'ogica nos permite traducir propiedades y hechos del
+        mundo real a un lenguaje que entienden las computadoras.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{{Motivaci\'on}}
+    \begin{itemize}
+        \item{La diferencia principal entre las logicas es su \emph{expresividad}
+        (m\'as sobre eso despues).}
+        \item{La \emph{Logica de primer orden} ofrece un buen balance
+            entre expresividad, practicalidad y simplicidad.}
+        \item{La l\'ogica de primer orden es una herramienta muy util en la inteligencia
+            artificial. Sistemas expertos y bases de conocimiento como Watson y Cync son
+            impulsadas por alg\'una variante de esta logica.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo:}
+    \begin{center}
+        $\forall h.\mathtt{Humano}\ h \Rightarrow\ \mathtt{Mortal}\ h$
+    \end{center}
+    \begin{center}
+        $\forall x\forall y.(\mathtt{Entero}\ x\wedge\mathtt{Entero}\ y\wedge(\exists n.x=n+n)\wedge(\exists m.y=m+m))\Rightarrow \exists q.x+y=q+q$
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Vocabulario}
+    \begin{itemize}
+        \item{La logica de primer orden en realidad es una familia de logicas.}
+        \item{El vocabulario de la logica de primer orden viene de varios dominios. Ejemplo:
+            \begin{itemize}
+                \item{Si uno intenta describir numeros naturales, simbolos como: $+$, $-$, $0$, ect.}
+                \item{Si uno intenta describir un sistema experto medico: \texttt{diagnostico}, \texttt{tratamiento}, ect.}
+            \end{itemize}
+        }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{{Vocabulario}}
+    \begin{itemize}
+        \item{Los simbolos que comparten \emph{todas} las logicas de primer orden son:
+        \begin{itemize}
+            \item{{\bf Variables:} $x_1$, $x_2$, $y$, $z$, $\ldots$}
+            \item{{\bf Conectivos l\'ogicos:} $\wedge$, $\vee$, $\neg$, $\Rightarrow$, $\Leftrightarrow$}
+            \item{{\bf Cuantificadores:} $\forall$ y $\exists$}
+            \item{{\bf La igualdad:} $=$}
+            \item{{\bf parentesis:} $(x)$}
+        \end{itemize}
+        }
+        \item{Los simbolos especificos de un domino se definen as:
+        \begin{itemize}
+            \item{Por cada numero $n$, un conjunto de simbolos de predicados con aridad $n$. Ej. $\mathtt{Mortal}\ x$}
+            \item{Por cada numero $n$, un conjunto de simbolos de funciones con aridad $n$. Ej. $distancia\ x\ y$}
+            \item{Un conjunto de simbolos constantes. Ej. $0$, $1$}
+        \end{itemize}
+        }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Observaciones}
+    \begin{itemize}
+        \item{El conjunto de simbolos en una logica de primer orden puede ser
+        infinito, incluso de cardinalidad arbitraria! Ie. todos los numeros
+        reales podrian ser un simbolo.}
+        \item{Los simbolos de la logica de primer orden se dividen en tres tipos:
+        funciones, predicados y constantes.}
+        \item{Los simbolos de la l\'ogica de primer orden tienen una propiedad
+        llamada \emph{aridad}.}
+        \item{Los simbolos constantes denotan objetos especificos al dominio.}
+        \item{Los predicados de aridad 1 denotan propiedades de objetos.}
+        \item{Los predicados de aridad mayor a 1 denotan relaciones entre objetos.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sintaxis: Terminos}
+    Un \emph{Termino} en logica de primer orden se define recursivamente com:
+    \begin{itemize}
+        \item{Un simbolo constante es un \emph{Termino}}
+        \item{Una variable es un termino.}
+        \item{Si $t_1\ldots t_n$ son terminos y $f$ es una funci\'on de aridad $n$, $f\ t_1\ldots t_n$ es un termino.}
+    \end{itemize}
+    Ejemplos, dado el conjunto de simbolos $S:=\{\mathtt{Alice},\mathtt{Bob}\}$ y la funcion $padre\_de$:
+    \begin{itemize}
+        \item{$\mathtt{Alice}$}
+        \item{$padre\_de\ \mathtt{Alice}$}
+        \item{$padre\_de\ padre\_de\ \mathtt{Bob}$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sintaxis: Expressiones}
+    Las expresiones de definen como:
+    \begin{itemize}
+        \item{Dados los terminos $t_0$ y $t_1$, $t_0=t_1$ es una expression.}
+        \item{Dados los terminos $t_0\ldots t_n$ y un predicado $P$ de aridad $n$, $P\ t_0\ldots t_n$ es una expression.}
+        \item{Dada la expresion $\psi$, $\neg\psi$ es una expresi\'on.}
+        \item{Dadas las expresiones $\psi_1$ y $\psi_2$, ($\psi_1\wedge\psi_2$), ($\psi_1\vee\psi_2$), ($\psi_1\Rightarrow\psi_2$) y ($\psi_1\Leftrightarrow\psi_2$) son expressiones.}
+        \item{Dada la expresi\'on $\psi$ y una variable $x$, ($\exists x\ \psi$) y ($\forall x\ \psi$) son expresiones.}
+    \end{itemize}
+    Ejempos:
+    \begin{itemize}
+        \item $\exists x\ padre\_de\ \mathtt{Alice}=x$
+        \item $\forall y\ \exists x\ padre\_de\ y=x\wedge \neg(x=y)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Expresividad}
+    \begin{itemize}
+        \item{Un objeto, sistema, ect. puede tener infinitas propiedades y pueden
+        haber infinitos hechos respecto a el.}
+        \item{Una l\'ogica (sea la que sea) no puede expresar todas las propiedades
+        de un objeto (a pesar de poder expresar infinitas propiedades y enunciados).}
+        \item{La medida de la cantidad de propiedades que puede expresar una l\'ogica
+        se llama \emph{expresividad}.}
+        \item{La l\'ogica de primer orden permite expresar todas las propiedades
+        \emph{parcialmente computables}.}
+        \item{Algunas logicas, como la logica de segundo orden tienen mayor expresividad.
+        Ejemplo, principio de inducci\'on: $\forall P\ ((P\ 0)\wedge(\forall n\ P\ n\Rightarrow P\ (n+1)))\Rightarrow \forall n\ P\ n$}
+        \item{Las propiedades expresables por la l\'ogica de segndo orden no son computables.}
+    \end{itemize}
+\end{frame}
+
+\end{document}
