@@ -1,0 +1,217 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{multirow}
+\usepackage{hyperref}
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{c} % Load Perl syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=[sharp]c, % Use Perl in this example
+        frame=single, % Single frame around code
+        basicstyle=\small\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Perl functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Perl function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers                                         
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Perl functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Perl function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+       	%
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+% Creates a new command to include a perl script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\perlscript}[2]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#2,label=#1]{#1.cs}
+\end{itemize}
+}
+
+\begin{document}
+
+\begin{tabular}{l l}
+\multirow{5}{*}{\includegraphics[width=2cm]{../Recursos/logo.png}} & Universidad del Istmo de Guatemala \\
+ & Facultad de Ingenieria \\
+ & Ing. en Sistemas \\
+ & Dise\~no, Analisis y Fabricaci\'on de Sistemas \\
+ & Prof. Ernesto Rodriguez - \href{mailto:erodriguez@unis.edu.gt}{erodriguez@unis.edu.gt} \\
+\end{tabular}
+\\\\\\
+
+\begin{center}
+        \horrule{0.5pt}
+        \huge{Ex\'amen parcial \#1} \\
+        \large{Tiempo de resoluci\'on: 90 minutos} \\
+        \horrule{1pt}
+\end{center}
+\vspace{0.3cm}
+Nombre: \noindent\rule{8cm}{0.4pt}
+\\\vspace{0.1cm}\\\emph{Instrucciones: Responda las preguntas a continuaci\'on. Si necesita m\'as espacio, por favor solicitar
+hojas adicionales al catedratico.}
+
+% \perlscript{homework_example}{Sample Perl Script With Highlighting}
+
+\section*{Seccion 1: Metodologias (50\%)}
+\emph{Instrucciones: A continuaci\'on se muestra una descripci\'on de dos situaciones. Dadas las metodologias
+        de desarrollo Waterfall y Scrum, escoga una metodologia para cada sistema, describa que ventajas
+        y desventajas tendria utilizar esa metodologia en esa situaci\'on. {\bf Debe seleccionar una metodologia
+        diferente para cada situacion.}}
+\vspace{0.5cm}\\
+\emph{Situaci\'on \#1: } Un grupo de aerolineas quiere ofrecerle a sus pasajeros la
+mayor eficiencia para llegar a sus destinos. La causa principal de perdida de tiempo
+para los pasajeros es perder una conexi\'on debido a un retraso y tener que
+solicitar un nuevo vuelo con la aerolinea. Por eso, las aerolineas quieren crear una
+aplicacci\'on movil y para los sistemas de entretenimiento del avion que le permita a
+los pasajeros modificar su ruta mientras se encuentran volando. Debido a que hay varias 
+aerolineas involucradas, y la coordinaci\'on de vuelos es un tema complicado y delicado, 
+se desean probar varias alternativas diferentes para lograr que el sistema sea facil de
+utilizar para los pasajeros, reduzca los costos de operaci\'on para las aerolinas y 
+que el sistema sea robusto (un asiento solamente se ocupa por un pasajero).
+\vspace{30cm}\\
+\vspace{5cm}\\
+\emph{Situaci\'on \#2: } Una peque\~na empresa que vende material de carpinteria tiene
+un sistema de manejo de inventario que corre sobre la plataforma MS-DOS. Debido a que
+la plataforma es vieja y el mantenimiento de la misma cada vez se torna m\'as dificil,
+la empresa ha decidido contratar a una empresa para que migre el sistema a tecnologia
+moderna. Hay muchas mejoras que podrian hacercele al sistema, pero la empresa por ser
+peque\~na, no dispone de mucho presupuesto y sus empleados ya han usado el sistema
+antiguo por a\~nos, por lo cual desean que el sistema sea lo m\'as similar posible al
+anterior. Adicionalmente, es dificil comunicarse con el due\~no de la empresa ya que
+a menudo se encuentra fuera del pueblo comprando material de carpinteria.
+\vspace{20cm}\\
+
+\section*{Secci\'on 2: L\'ogica de primer orden (50\%)}
+\emph{Instrucciones: A continuaci\'on se presenta una l\'ogica de primer orden. La tarea
+        consiste en convertir cada enunciado que se presenta a una expressi\'on de esta
+        l\'ogica.}
+
+\subsection*{Definicion de la l\'ogica}
+El proposito de la siguiente l\'ogica es describir un sistema que almacena informaci\'on
+relacionada a peliculas o series, similar a IMDB. A continuaci\'on se describen sus componentes.
+\\\vspace{0.1cm}\\{\bf Simbolos constantes}
+\begin{itemize}
+        \item{Para toda pelicula o serie, se puede utilizar su titulo en letra arabica como
+        simbolo para representarla. Ejemplo: ``Titanic'', ``El Rey Leon'', ``Rick and Morty'',
+                etc.}
+        \item{Para todo actor, se puede utilizar su nombre con letras arabicas como
+        simbolo. Por ejemplo: ``Tom Hanks'',``Morgan Freeman'', etc.
+        \item{Existen los siguientes simbolos para representar generos: ``Accion'',
+                ``Suspenso'', ``Romance'' y ``Comedia'' }}
+\end{itemize}
+{\bf Simbolos predicados}
+\begin{itemize}
+        \item{Existe los predicados \texttt{es-genero},
+                \texttt{es-actor} y \texttt{es-pelicula}, de aridad 1, para clasificar
+                los diferentes simbolos.}
+        \item{Existe el predicado \texttt{actua-en}, de aridad 2, para relacionar
+                un actor con una pelicula.\\Ejemplo: \texttt{actua-en} ``Matrix'' ``Keano Reeves''}
+        \item{Existe el predicado \texttt{tiene-genero}, de aridad 2, para relacionar
+                una pelicula con un genero.\\Ej. \texttt{tiene-genero} ``Accion'' ``Matrix''}
+        \item{Existe el predicado \texttt{actuan-juntos}, de cualquier aridad mayor que 1,
+                el cual relaciona artistas que hayan actuado en la misma pelicula.\\Ejemplo:
+                \texttt{actuan-juntos} ``Cameron Diaz'' ``Drew Barrymore'' ``Lucy Liu''}
+\end{itemize}
+{\bf Simbolos de funciones}
+\begin{itemize}
+        \item{Existe la funcion \emph{genero-principal}, de aridad 1, la cual recibe como
+                parametro un actor y retorna el genero al cual pertenece la mayor cantidad
+                de peliculas en que el actor haya participado.\\Ejemplo:
+                \emph{genero-principal} ``Vin Diesel''} retornaria ``Accion''.
+\end{itemize}
+
+\subsection*{Expressiones}
+\emph{Escribir una expressi\'on utilizando la l\'ogica de primer orden
+presentada anteriormente que corresponda al texto que se presenta. La
+primera expressi\'on se coloca como ejemplo.}
+\\\vspace{0.1cm}\\{\bf Para toda pelicula, existe alg\'un genero.}\\
+$\forall p\ \mathtt{es-pelicula}\ p\ \wedge\ (\exists\ g\ \mathtt{es-genero}\ g\wedge\ \mathtt{tiene-genero}\ g\ p)$
+\vspace{20cm}
+\\{\bf Toda pelicula debe pertenecer solamente a un genero.}
+\\\vspace{3cm}
+\\{\bf Si Johnny Depp, Orlando Bloom y Keira Knightley actuaron juntos,
+        entonces existe al menos una pelicula donde hayan actuado ellos tres.}
+\\\vspace{3cm}
+\\{\bf Todo actor debe haber actuado en al menos una pelicula.}
+\\\vspace{3cm}
+\\{\bf Todo actor cuyo genero principal sea ``Suspenso'', debe haber
+        actuado en al menos una pelicula de suspenso.}
+\\\vspace{3cm}
+\\{\bf Debe exister solamente un genero principal por cada actor.}
+\\\vspace{3cm}
+\\{\bf Si una pelicula tiene 3 actores, esos tres actores
+        debieron haber actuado juntos.}
+
+\section*{Extra (Hasta un 10\% adicional)}
+\emph{Extienda la l\'ogica presentada anteriormente para poder expresar
+los siguientes enunciados. Utilize un formato similar al formato
+utilizado en este examen para extender dicha l\'ogica.}
+\begin{itemize}
+        \item{Toda pelicula debe tener una calificaci\'on.}
+        \item{Los actores deben tener una calificaci\'on, la cual es
+        el promedio de la calificaci\'on de las peliculas en que aparecen.}
+        \item{Solamente existe una calificaci\'on por pelicula o actor.}
+\end{itemize}
+
+\end{document}
