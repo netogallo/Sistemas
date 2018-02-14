@@ -1,0 +1,299 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[font={small,it},labelfont=bf]{caption}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor={blue!40!black},
+    linkcolor={red!50!black}
+}
+
+\inputencoding{utf8}
+
+\mode<presentation> {
+    \usetheme{Madrid}
+}
+
+\title{Logica de primer orden: Calculo}
+\author{Prof. Ernesto Rodriguez}
+\institute{
+    Universidad del Itsmo \\
+    \medskip \textit{erodriguez@unis.edu.gt}
+}
+
+\date[\today]{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Motivaci\'on}
+    \begin{itemize}
+        \item{Solamente hemos estudiado que significa que una expresi\'on es cierta.}
+        \item{No tenemos herramientas para encotrar una demostraci\'on que dicha expresi\'on es cierta.}
+        \item{Existen varias de encontrar demostraciones.}
+        \item{En esta clase estudiaremos un \emph{calculo sequencial} para ello.}
+        \item{La belleza de la l\'ogica no solamente es que podemos determinar
+            si algo es verdad o no, sino que tambien podemos encontrar una demostraci\'on
+            (si existe).}
+        \item{El calculo que se presentara en esta clase es un \emph{calculo completo}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Calculo sequencial}
+    {\bf Ejemplo: } Demostraci\'on por contradicci\'on.
+    \begin{tabular}{p{7cm} p{3cm}}
+        \begin{enumerate}
+            \item{Queremos demostrar que $\varphi$ es verdad.}
+            \item{Assumir premisas $\varphi_1\ldots\varphi_{n}$ cuya consequencia es $\varphi$}
+            \item{Ahora asumir que $\varphi$ es falso $\neg\varphi$}
+            \item{Encontrar una expressi\'on $\psi$ que pueda demostrarse cierta y falsa.}
+        \end{enumerate} & 
+        \[
+        \begin{array}{l}
+            \varphi_{1}\ldots\varphi_{n}\ \neg\varphi\ \psi \\
+            \varphi_{1}\ldots\varphi_{n}\ \neg\varphi\ \neg\psi \\
+            \hline
+            \varphi_{1}\ldots\varphi_{n}\ \varphi \\
+        \end{array}
+        \]
+        \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Abreviaci\'on}
+    Es possible abreviar una secuencia (posiblemente vacia) de suposiciones
+    como $\Gamma$.\\
+    \[
+        \begin{array}{l}
+            \Gamma\ \neg\varphi\ \psi \\
+            \Gamma\ \neg\varphi\ \neg\psi \\
+            \hline
+            \Gamma\ \varphi \\
+        \end{array}
+        \ \ \Leftrightarrow\ \ 
+        \begin{array}{l}
+            \varphi_{1}\ldots\varphi_{n}\ \neg\varphi\ \psi \\
+            \varphi_{1}\ldots\varphi_{n}\ \neg\varphi\ \neg\psi \\
+            \hline
+            \varphi_{1}\ldots\varphi_{n}\ \varphi \\
+        \end{array}
+    \]
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Regla del Antecedente}
+    \[
+        \begin{array}{l}
+            \Gamma\ \ \varphi \\
+            \hline
+            \Gamma'\ \varphi \\
+        \end{array}
+        \ \ \mathtt{si}\ \  \Gamma \subset \Gamma'
+    \]
+    \begin{itemize}
+        \item{Dice que si asumimos m\'as cosas, no podemos probar menos cosas}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Regla de la premisa}
+    \[
+        \begin{array}{l}
+             \\
+            \hline
+            \Gamma\ \varphi
+        \end{array}
+        \ \ \mathtt{if}\ \ \varphi\in\Gamma    
+    \]
+    \begin{itemize}
+        \item{Simplemnte dice que si asumimos $\varphi$, podemos probar $\varphi$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Separaci\'on de casos}
+    \[
+        \begin{array}{l c l}
+            \Gamma & \psi & \varphi \\
+            \Gamma & \neg\psi & \varphi \\
+            \hline
+            \Gamma\ & & \varphi
+        \end{array}
+    \]
+    \begin{itemize}
+        \item{La expresi\'on $\varphi$ es consequencia de $\Gamma$ existe una
+        formula $\psi$ tal que $\varphi$ es consequencia de $\Gamma\cup\psi$ y $\Gamma\cup\neg\psi$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Contradicci\'on}
+    \[
+        \begin{array}{l l}
+            \Gamma & \psi \\
+            \Gamma & \neg\psi \\
+            \hline
+            \Gamma & \varphi \\
+        \end{array}
+        \ \ \ \forall \varphi
+    \]
+    \begin{itemize}
+        \item{El conjunto de premisas es inconsistente ya pue se puede
+            demostrar $\psi$ y $\neg\psi$ con el.}
+        \item{A partir de un conjunto de premisas inconsistente, se puede
+            demostrar cualquier cosa.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introducci\'on de $\vee$ en el antecedente}
+    \[
+        \begin{array}{l l l}
+            \Gamma & \varphi & \xi \\
+            \Gamma & \psi & \xi \\
+            \hline
+            \Gamma & \varphi \vee \psi & \xi
+        \end{array}
+    \]
+    \begin{itemize}
+        \item{Esta regla dice que si podemos demostrar $\xi$ utilizando
+            $\Gamma$ y $\varphi$ o utilizando $\Gamma$ y $\psi$, tambien lo
+            podemos demostrar utilizando $\Gamma$ y $\varphi\vee\psi$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introducci\'on de $\vee$ en la conclusi\'on}
+    \[
+        \begin{array}{l l}
+            \Gamma & \varphi \\
+            \hline
+            \Gamma & \psi \vee \varphi
+        \end{array}
+    \]
+    \begin{itemize}
+        \item{Si podemos probar $\psi$, tambien podemos probar $\psi\vee\varphi$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introducci\'on de $\exists$ en la conclusi\'on}
+    \[
+    \begin{array}{l l}
+        \Gamma & \varphi\frac{t}{x} \\
+        & \\
+        \hline
+        & \\
+        \Gamma & \exists x\varphi
+    \end{array}
+    \]
+    \begin{itemize}
+        \item{Dadas las premisas $\Gamma$}
+        \item{Si encontramos un termino, el cula resulta cierto al
+            substituirlo por la variable libre $x$ en una expression $\varphi$,
+            demostramos la existencia de dicho $x$.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introducci\'on de $\exists$ en las premisas}
+    \[
+        \begin{array}{l l l}
+            \Gamma & \varphi\frac{t}{x} & \psi \\
+            & & \\
+            \hline
+            & & \\
+            \Gamma & \exists x\varphi & \psi
+        \end{array}
+    \]
+    \begin{itemize}
+        \item{Si asumimos $\Gamma$}
+        \item{La expressi\'on $\psi$ es verdadera al reemplazar la variable
+        $x$ con un ejemplo particular $t$ en la expressi\'on $\varphi$.}
+        \item{Se puede concluir que $\psi$ tambien es verdadero con la
+        expressi\'on $\exists x\varphi$}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Reflexividad de ($=$)}
+    \[
+        \begin{array}{l}
+            \hline
+            t=t
+        \end{array}    
+    \]
+    \begin{itemize}
+        \item{Todo valor es igual a si mismo.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Substituci\'on por iguladad}
+    \[
+        \begin{array}{l l l}
+            \Gamma & & \varphi \\
+            \hline
+            \Gamma & x=t & \varphi\frac{t}{x}
+        \end{array}    
+    \]
+    \begin{itemize}
+        \item{Si un termino se substituye por un termino equivalente,
+            la expresi\'on no pierde su validez}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Observaciones}
+    \begin{itemize}
+        \item{Esta es la lista completa del calculo para derivar expressiones.}
+        \item{Utilizando estas reglas, se pueden derivar reglas nuevas.}
+        \item{A pesar que las expressiones hablan sobre objetos reales y 
+            semantica, estas derivaciones son puramente sintacticas.}
+        \item{Una computadora (con suficiente tiempo), podria aplicar
+            estas reglas en toda permutaci\'on possible y eventualmente
+            probar o rechazar cualquier expressi\'on de logica de primer
+            orden.}
+        \item{A partir de la manipulaci\'on de simbolos, podemos enconrar
+            conocimiento del mundo real.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo}
+    Derivaci\'on de la regla \emph{cadena}:
+    \[
+        \begin{array}{l l l}
+            \Gamma & & \psi \\
+            \Gamma & \varphi & \psi \\
+            \hline
+            \Gamma & & \psi \\
+        \end{array}
+    \]
+\end{frame}
+
+\begin{frame}
+    \frametitle{}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Referencias}
+    \bibliography{../Referencias/referencias}
+    \bibliographystyle{plain}
+\end{frame}
+
+\end{document}
