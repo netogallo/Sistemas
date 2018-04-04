@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{c} % Load Perl syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=[sharp]c, % Use Perl in this example
+        frame=single, % Single frame around code
+        basicstyle=\small\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Perl functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Perl function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers                                         
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Perl functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Perl function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+       	%
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+% Creates a new command to include a perl script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\perlscript}[2]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#2,label=#1]{#1.cs}
+\end{itemize}
+}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\begin{document}
+
+\begin{tabular}{l l}
+\multirow{5}{*}{\includegraphics[width=2cm]{../../Recursos/logo.png}} & Universidad del Istmo de Guatemala \\
+ & Facultad de Ingenieria \\
+ & Ing. en Sistemas \\
+ & Analisis, dise\~no y fabricaci\'on de Sistemas \\
+ & Prof. Ernesto Rodriguez - \href{mailto:erodriguez@unis.edu.gt}{erodriguez@unis.edu.gt} \\
+\end{tabular}
+\\\\\\
+
+\begin{center}
+        \horrule{0.5pt}
+        \huge{Hoja de trabajo \#2} \\
+        \large{Fecha de entrega: 4 de Marzo, 2018 - 11:59pm} \\
+        \horrule{1pt}
+\end{center}
+
+\emph{Instrucciones: Realizar cada uno de los ejercicios siguiendo sus respectivas
+instrucciones. El trabajo debe ser entregado a traves de Github, en su repositorio del curso, colocado
+en una carpeta llamada "Hoja de trabajo 2". Al menos que la pregunta indique diferente, todas las
+respuestas a preguntas escritas deben presentarse en un documento formato pdf, el cual haya 
+sido generado mediante Latex. Los ejercicios de programaci\'on deben ser colocados en una carpeta
+llamada ``Programas", la cual debe colocarse dentro de la carpeta correspondiente a esta hoja de trabajo.}
+
+% \perlscript{homework_example}{Sample Perl Script With Highlighting}
+"
+\section*{Parte \#1: Codificaci\'on y Decodificaci\'on}
+Para esta secci\'on, debe escribir dos funciones: ``Codificar''
+y ``Decodificar''. Las funciones deben aceptar como parametro un
+numero $n$ y un \texttt{string}. El numero corresponde a la base
+que se esta utilizando y el string el mensaje que se intenta
+codificar o decodificar. La funci\'on ``Codificar'' debe transformar
+el \texttt{string} a un arreglo de numeros $n\in\mathbf{Z}^n$. De
+la misma forma, la funci\'on ``Decodificar'' debe transformar el
+arreglo de numeros al \texttt{string} original. Debe considerar que
+el numero $n$ debe ser de precision arbitraria, de tal forma que utilizar
+un \texttt{int} no da a basto.
+
+\section*{Parte \#2: RSA}
+Crear una funci\'on llamada ``RSAKeyGen'' que acepta como parametro
+un numero $l$ que corresponde a la longitud de la llave publica.
+Considerar que la llave privada debe ser aproximadamente de la misma
+longitud. Es importante utilizar un RNG (Random Number Generator)
+criptografico para que las llaves sean seguras. Esta funci\'on debe
+retornar 3 valores: La llave publica $e$, la llave privada $d$ y el
+modulo o base $n$ tal que permite encriptar y codificar mensajes
+en el espacio $\mathbf{Z}^n$.
+
+\section*{Parte \#3: Encriptar y Desencriptar}
+
+Crear dos funciones: ``Encriptar'' y ``DesEncriptar''. La funci\'on
+``Encriptar'' acepta una llave publica $e$, el modulo $n$ y un \texttt{string}.
+Esta funci\'on debe producir un mensaje encriptado y codificado utilizando RSA.
+De la misma forma, la funci\'on $DesEncriptar$ acepta la llave privada $d$,
+el modulo $n$ y el mensaje ecriptado (un array de numeros) y recupera el \texttt{string}
+original que fue encriptado.
+
+\section*{Parte \#4: Hackear}
+
+Crear una funci\'on llamada ``Hackear''. Esta funci\'on acepta una llave
+publica $e$, un modulo $n$, un tiempo $t$ (en mili-segundos) y un mensaje encriptado (array de numeros) e intenta
+recuperar el mensaje (\texttt{string}) original utilizando fuerza bruta. Si la funci\'on
+no logra recuperar el mensaje en el tiempo dado en el parametro $t$, se debe
+generar un error.
+
+\section*{Parte \#5: Test de seguridad}
+Escribir una prueba unitaria llamada ``TestSeguridadLineal''. Esta prueba unitaria
+generara llaves RSA de longitud incremental empezando con una longitudo de 5. Luego debe encriptar un mensaje
+e intentar vencer la ecriptaci\'on mediante la funci\'on ``Hackear''. El tiempo
+limite para vencer la encriptaci\'on es la longitud de la llave publica en mili-segundos.
+Hasta que longitud de llave fue posible vencer la encriptaci\'on?
+\\\\
+De la misma forma, escribir una prueba unitaria llamada ``TestSeguridadPolinomial''.
+Esta prueba es igual a la prueba ``TestSeguridadLineal'' excepto que el tiempo limite
+es la longitud $l$ de la llave publica elevado a la 3ra potencia ($l^3$). Hasta
+que longitud de llave fue possible vencer la encriptaci\'on? Fue un incremento considerable
+comparado con el ``TestSeguridadLineal''?
+
+\end{document}
